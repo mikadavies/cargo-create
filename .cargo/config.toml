@@ -18,7 +18,7 @@ codegen-backend = "llvm"
 rustflags = [
     "-C", "target-cpu=native",
     "-Z", "tune-cpu=native",
-    "-Z", "threads=20",
+    "-Z", "threads=8",
     "-C", "lto=fat",
     "-Z", "virtual-function-elimination" # remove this line if encountering persitent and unknown bugs in build
 ]
