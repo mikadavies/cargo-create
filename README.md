@@ -22,18 +22,14 @@ If a custom template is provided, the other arguments are ignored.
 ### Example usage:
 ```
 $ cargo-create myproject
-> Created project successfully! Name: myproject
 ```
 ```
 $ cargo-create myproject --lib-not-main
-> Created project successfully! Name: myproject
 ```
 ```
 $ cargo-create myproject --template-dir=path/to/template
-> Created project successfully! Name: myproject
 ```
 It is worth noting that the tool currently does not support spaces when specifying the template directory. Therefore, `--template-dir = path/to/template` and `--template-dir=path/to/multiple words/template` will fail to recognise the argument, and create a default configuration. If the template path contains spaces, please pass it as a string: 
 ```
 $ cargo-create myproject --template-dir="path/to/multiple words/template"
-> Created project successfully! Name: myproject
 ```
