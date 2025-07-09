@@ -1,0 +1,38 @@
+pub(crate) const CONFIG: &[u8] = r#"[alias]
+b = "build"
+br = "build --release"
+r = "run"
+rr = "run --release"
+
+[unstable]
+codegen-backend = true
+
+[profile.dev]
+codegen-backend = "cranelift"
+
+[profile.dev.package."*"]
+codegen-backend = "llvm"
+
+[target.'cfg(not(debug_assertions)))']
+rustflags = [
+    "-C", "target-cpu=native",
+    "-Z", "tune-cpu=native",
+    "-Z", "threads=20",
+    "-C", "lto=fat",
+    "-Z", "virtual-function-elimination" # remove this line if encountering persitent and unknown bugs in build
+]
+
+[target.x86_64-pc-windows-msvc]
+linker = "rust-lld.exe"
+rustflags = [
+    "-C", "link-arg=-fuse-ld=lld",
+    "-Z", "share-generics=n",
+]
+
+[target.x86_64-unknown-linux-gnu]
+linker = "clang"
+rustflags = [
+    "-C", "link-arg=-fuse-ld=mold",
+    "-Z", "share-generics=y",
+]
+"#.as_bytes();

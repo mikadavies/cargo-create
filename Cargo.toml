@@ -1,0 +1,23 @@
+
+[package]
+name = "cargo-create"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+# Terminal colour
+termcolor = "1.4.1"
+
+[profile.dev]
+lto = "off"
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+codegen-units = 1
+lto = "fat"
+panic = "abort"
+strip = "symbols"
+opt-level = "z"
