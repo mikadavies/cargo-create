@@ -5,7 +5,7 @@ A tool to quickly generate optimised or custom-structured Rust projects.
 This project was primarily created for personal use, as I often apply the same optimisations to most projects through `Cargo.toml` and `.cargo/config.toml`.
 This tool is simply a Rust-centric method for achieving this.
 
-The default behaviour takes a project name as its only input argument, and produces a Rust project of that name in a child directory of the current location. The default configuration should be suitable for most projects, though it uses nightly-specific options. It may also be worth changing the `threads` rustflag in `src/cargo_config.rs` to fit the current computer.
+The default behaviour takes a project name as its only input argument, and produces a Rust project of that name in a child directory of the current location. The default configuration should be suitable for most projects, though it uses nightly-specific options. It may also be worth changing the `threads` rustflag in `src/cargo_config.rs` to better fit your machine.
 
 To provide some extra flexibility, it comes with a few options:
 - `--lib-not-main` replaces the `main.rs` file with a `lib.rs` file
